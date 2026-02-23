@@ -7,8 +7,8 @@ fun LoginScreen(
     configuration: ScreenConfiguration = getScreenConfiguration()
 ) {
     when (configuration) {
-        ScreenConfiguration.MobilePortrait -> LoginMobilePortraitScreen()
-        ScreenConfiguration.MobileLandscape -> LoginMobileLandscapeScreen()
+        ScreenConfiguration.PhonePortrait -> LoginPhonePortraitScreen()
+        ScreenConfiguration.PhoneLandscape -> LoginPhoneLandscapeScreen()
         else -> LoginLargeScreen()
     }
 }

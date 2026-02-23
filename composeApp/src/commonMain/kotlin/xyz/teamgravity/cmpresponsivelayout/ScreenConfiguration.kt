@@ -3,8 +3,8 @@ package xyz.teamgravity.cmpresponsivelayout
 import androidx.window.core.layout.WindowSizeClass
 
 enum class ScreenConfiguration {
-    MobilePortrait,
-    MobileLandscape,
+    PhonePortrait,
+    PhoneLandscape,
     TabletPortrait,
     TabletLandscape,
     Desktop;
@@ -21,9 +21,9 @@ enum class ScreenConfiguration {
                     && value.isHeightAtLeastBreakpoint(WindowSizeClass.HEIGHT_DP_EXPANDED_LOWER_BOUND) -> TabletPortrait
 
             value.isWidthAtLeastBreakpoint(WindowSizeClass.WIDTH_DP_EXPANDED_LOWER_BOUND)
-                    && !value.isHeightAtLeastBreakpoint(WindowSizeClass.HEIGHT_DP_MEDIUM_LOWER_BOUND) -> MobileLandscape
+                    && !value.isHeightAtLeastBreakpoint(WindowSizeClass.HEIGHT_DP_MEDIUM_LOWER_BOUND) -> PhoneLandscape
 
-            else -> MobilePortrait
+            else -> PhonePortrait
         }
     }
 }

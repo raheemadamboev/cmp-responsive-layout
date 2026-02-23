@@ -1,5 +1,4 @@
 import com.android.build.api.dsl.ApplicationExtension
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -27,8 +26,6 @@ kotlin {
         }
     }
 
-    jvm()
-
     sourceSets {
         androidMain.dependencies {
             // compose preview
@@ -46,19 +43,12 @@ kotlin {
             implementation(libs.compose.ui)
             implementation(libs.compose.resources)
             implementation(libs.compose.preview)
+            implementation(libs.compose.icons)
             implementation(libs.compose.adaptive)
 
             // lifecycle
             implementation(libs.lifecycle.runtime)
             implementation(libs.lifecycle.viewmodel)
-        }
-
-        jvmMain.dependencies {
-            // current os
-            implementation(compose.desktop.currentOs)
-
-            // coroutines
-            implementation(libs.coroutines.swing)
         }
     }
 }
@@ -95,16 +85,4 @@ extensions.configure<ApplicationExtension> {
 
 dependencies {
     debugImplementation(libs.compose.tooling)
-}
-
-compose.desktop {
-    application {
-        mainClass = "xyz.teamgravity.cmpresponsivelayout.MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "xyz.teamgravity.cmpresponsivelayout"
-            packageVersion = "1.0.0"
-        }
-    }
 }
